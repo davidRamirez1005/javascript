@@ -1,0 +1,14 @@
+function sumaRecursiva(numero,repeticiones) {
+    let = numeroRepeticiones = numero.toString().repeat(repeticiones).split("")
+    let suma = numeroRepeticiones.reduce((acumulador,valor)=>{
+        return acumulador + Number(valor)
+    },0)
+    let digitos = suma.length
+    if (digitos == 1) {
+        console.log(suma);
+        return suma
+    }
+    sumaRecursiva(suma,1)
+}
+
+sumaRecursiva(148,3)
