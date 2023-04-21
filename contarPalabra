@@ -1,0 +1,23 @@
+function contadorPalabra(frase,palabraBuscar) {
+    let fraseSeparada = frase.split(" ")
+    let repetido = new Map()
+
+    for (let palabraIterada of fraseSeparada) {
+        if (repetido.has(palabraIterada)) {
+            repetido.set(palabraIterada, repetido.get(palabraIterada) + 1);
+        }
+        else{
+            repetido.set(palabraIterada, 1);
+        }
+    }
+    if (repetido.has(palabraBuscar)) {
+        return repetido.get(palabraBuscar);
+    } else {
+        console.log("no hay ninguna palabra repetida");
+        return 0;
+    }
+}
+let frase = "carro uno carro dos carro tres"
+let palabraBuscar = "carro"
+let contador = contadorPalabra(frase,palabraBuscar)
+console.log(contador);
