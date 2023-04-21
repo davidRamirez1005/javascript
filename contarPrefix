@@ -1,0 +1,10 @@
+function countPrefix(words, pref) {
+    return words.reduce((count, word) => {
+      count += word.startsWith(pref);
+      return count;
+    }, 0);
+  }
+  let words = ["pay", "attention", "practice", "attend"];
+  let pref = "at";
+  let result = countPrefix(words, pref);
+  console.log(result);
