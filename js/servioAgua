@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>servicio agua</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<style>
+    label{
+        font-size: 24px;
+        color: #0f5132;
+    }
+    input{
+        width: 30%;
+        border-radius: 20px;
+        border: none;
+        margin:2% ;
+    }
+    .cont1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .boton{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 9%;
+    }
+    .cont2{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-top: 4%;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+</style>
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+<br><br><br>
+<h1 style="display: flex;justify-content: center;color: cadetblue; margin-bottom: 5%;">SERVICIO DE AGUA</h1>
+    <div class="container cont1" style="background-color: cornflowerblue;padding: 5%;border-radius: 20px;">
+        <div class="mb-3">
+            <label for="" class="form-label">codigo</label>
+            <input type="text"
+              class="" name="codigo" id="codigo" aria-describedby="helpId" placeholder="">
+              <label for="" class="form-label">nombre</label>
+            <input type="text"
+              class="" name="" id="nombre"  placeholder="">
+              <div class="mb-3">
+                <label for="" class="form-label">estrato</label>
+                <select class="form-select form-select-lg" name="" id="mi-selector">
+                    <option selected>Select one</option>
+                    <option value="1">estrato 1</option>
+                    <option value="2">estrato 2</option>
+                    <option value="3">estrato 3</option>
+                    <option value="4">estrato 4</option>
+                    <option value="5">estrato 5</option>
+                </select>
+              </div>
+              <label for="" class="form-label">consumo</label>
+            <input type="text"
+              class="" name="" id="consumo" aria-describedby="helpId" placeholder="">
+          </div>
+          
+          <div class="table-responsive">
+              <table class="table">
+                  <thead style="background-color: #0e479f; color: white;">
+                      <tr>
+                          <th scope="col">codigo</th>
+                          <th scope="col">nombre</th>
+                          <th scope="col">valor a pagar</th>
+                        </tr>
+                    </thead>
+                    <div class="boton">
+                        <button type="button" class="btn btn-success btn-lg" id="agregar">agregar</button>
+                    </div>
+                    <tbody id="contenido" style="background-color: cadetblue;color: black;">
+                        
+                    </tbody>
+                </table>
+                <br>
+            </div>
+        </div>
+        <div class="container cont2">
+                <button type="button" class="btn btn-primary btn-lg" id="calcular">calcular total</button>
+                <button type="button" class="btn btn-danger btn-lg" id="limpiar">limpiar</button>
+                <button type="button" class="btn btn-warning btn-lg" id="boton-reproducir">hola</button>
+            <br>
+        </div>
+        <div class="container valor">
+                <h3 style="color: brown;display: flex;
+                margin-top: 4%;
+                font-weight: 900;
+                font-size: 50px;
+                font-family: monospace;">valor total</h3>
+                <br>
+                <h2 id="resultado"></h2>
+            </div>
+            <br><br>
+<script>
+    let miMapa = new Map();
+    let valor
+    function cadaSuscriptor(opcionSeleccionada,consumo) {
+        if (opcionSeleccionada === "1") {
+            valor = 10000 + (consumo * 100)
+        }
+        else if (opcionSeleccionada === "2") {
+            valor = 15000 + (consumo * 100)
+        }
+        else if (opcionSeleccionada === "3") {
+            valor = 20000 + (consumo * 100)
+        }
+        else if (opcionSeleccionada === "4") {
+            valor = 25000 + (consumo * 100)
+        }
+        else if (opcionSeleccionada === "5") {
+            valor = 30000 + (consumo * 100)
+        }
+        return valor
+    }
+      class solucion {
+          constructor(opcionSeleccionada, valorConsumo){
+              this.opcionSeleccionada = opcionSeleccionada
+              this.valorConsumo = valorConsumo
+          }
+          conceptoTotal(){
+            let valor = cadaSuscriptor(this.opcionSeleccionada, this.valorConsumo);
+            miMapa.set(this.valorConsumo, valor);
+      }
+          }
+    let opcionSeleccionada;
+    let valorConsumo
+    let nombre = document.getElementById("nombre")
+    let codigo = document.getElementById("codigo")
+    let consumo = document.getElementById("consumo")
+    let miSelector = document.getElementById("mi-selector")
+    let agregar = document.getElementById("agregar")
+    let calcular = document.getElementById("calcular")
+    let limpiar = document.getElementById("limpiar")
+    let contenido = document.getElementById("contenido")
+    let resultado = document.getElementById("resultado")
+
+
+    miSelector.addEventListener("change",function(){
+        opcionSeleccionada = miSelector.value;
+    })
+
+    agregar.addEventListener("click", function() {
+        opcionSeleccionada = miSelector.value;
+        valorConsumo = parseInt(consumo.value);
+        new solucion(opcionSeleccionada, valorConsumo).conceptoTotal();
+        
+        let cuerpo = `<tr><td>${codigo.value}</td><td>${nombre.value}</td><td>${valor}</td></tr>`
+        contenido.innerHTML += cuerpo
+        
+        consumo.value = ""
+        miSelector.value = ""
+        nombre.value = ""
+        codigo.value = ""
+    });
+    
+
+    let total = 0;
+    calcular.addEventListener("click", function () {
+        miMapa.forEach((valor) => {
+            total += valor;
+        });
+        resultado.innerHTML = `Total: ${total}`;
+    });
+
+    limpiar.addEventListener("click",function () {
+        contenido.innerHTML = "";
+        miMapa.clear();
+        resultado.innerHTML = "";
+    })
+    
+// Obtener referencia al botón
+const botonReproducir = document.getElementById('boton-reproducir');
+// Agregar evento de clic al botón
+botonReproducir.addEventListener('click', function() {
+  // Crear instancia de SpeechSynthesisUtterance
+  const mensaje = new SpeechSynthesisUtterance();
+  // Establecer texto a reproducir
+  mensaje.text = 'Hola soy Jose David de Campus y quiero enseñarte a programar';
+  // Establecer idioma a español (México)
+  mensaje.lang = 'es-MX';
+  // Reproducir el mensaje en voz alta
+  speechSynthesis.speak(mensaje);
+});
+
+
+</script>
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
