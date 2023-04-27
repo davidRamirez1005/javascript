@@ -1,0 +1,278 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f5f5f0 !important;
+}
+.container2 {
+    position: relative;
+    width: 100%;
+  }
+  
+  .image2 {
+    display: flex;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-image: url(https://www.uts.edu.co/sitio/wp-content/uploads/2019/10/app-uts.png);
+    overflow: hidden;
+    width: 49%;
+    height: 0;
+    transition: .5s ease;
+    border-radius: 10px;
+    background-size:contain;
+    background-repeat: no-repeat;
+
+  }
+  
+  .container2:hover .overlay {
+    bottom: 0;
+    height: 100%;
+  }
+  
+  .bajada {
+    white-space: nowrap; 
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+
+  .slow-spin {
+    -webkit-animation: fa-spin 10s infinite linear;
+    animation: fa-spin 10s infinite linear;
+    }
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding-top: 5%;
+    
+}
+.encabezado{
+    padding-top: 5%;
+}
+html{
+    scroll-behavior: smooth;
+  }
+  body::-webkit-scrollbar{
+      width: 10px;
+  }
+  body::-webkit-scrollbar-thumb{
+      background-color: #0b4a75;
+      border-radius: 100px;
+  }
+  body::-webkit-scrollbar-button{
+      background-color: #0b4a75;
+  }
+  body::-webkit-scrollbar-track-piece{
+      background-color: transparent;
+  }
+  .arriba img{
+    width: 20%;
+    height: 10%;
+  
+  }
+  .arriba{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .barraNav{
+    background-color: #C3D730;
+    height: 50px;
+  }
+  
+  .barraNav li a{
+    transition: all 0.02s;
+  }
+  .barraNav li a:hover{
+    background-color: #ffffff;
+    border-radius: 50px;
+    border-style: solid;
+    border-color: transparent;
+  
+  }
+  .barraNav li a{
+    align-items: center;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    height: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display:flex;
+    font-size: 17px;
+  }
+  body,
+  html {
+    background-color: #eceff6;
+  }
+  
+  body,
+  p,
+  input,
+  select,
+  textarea,
+  button {
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 26px;
+  }
+  
+  div,
+  p {
+    color: #0b4a75;
+    text-shadow: 1px 1px 1px #fff;
+  }
+  
+  form {
+    padding: 16px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .segment {
+    padding: 32px 0;
+    text-align: center;
+  }
+  
+  button,
+  input {
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 320px;
+    padding: 16px;
+    background-color: #ebecf0;
+    text-shadow: 1px 1px 0 #fff;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+  
+  input {
+    margin-right: 8px;
+    box-shadow: inset 5px 5px 5px #babecc, inset -5px -5px 10px #fff;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  input:focus {
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+  }
+  
+  button {
+    color: #61677c;
+    font-weight: bold;
+    box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  button:hover {
+    box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+  }
+  button:active {
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+  }
+  button .icon {
+    margin-right: 8px;
+  }
+  button.unit {
+    border-radius: 8px;
+    line-height: 0;
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 8px;
+    font-size: 19.2px;
+  }
+  button.unit .icon {
+    margin-right: 0;
+  }
+  button.red {
+    display: block;
+    width: 100%;
+    color: #0b4a75;
+  }
+  
+  .input-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .input-group label {
+    margin: 0;
+    flex: 1;
+  }
+.neu{
+    border-radius: 50px;
+background: #e0e0e0;
+box-shadow:  23px 23px 41px #bababa,
+             -23px -23px 41px #ffffff;
+}
+.neumorphic {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff;
+  }
+  
+  .neumorphic th, .neumorphic td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .neumorphic th {
+    background-color: #d9d9d9;
+    font-weight: bold;
+  }
+  
+  .neumorphic tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .neumorphic tbody tr:hover {
+    background-color: #e5e5e5;
+  }
+  .neumorphicFooter {
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .neumorphicFooter p {
+    margin: 0;
+    font-size: 14px;
+  }
+  

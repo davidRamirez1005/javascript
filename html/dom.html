@@ -11,6 +11,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 <style>
+  *{
+  margin: 0.6%;
+
+}
 .a{
     display: flex;
     justify-content: center;
@@ -46,18 +50,19 @@
         <div class="col-7 ">
             <h1 style="align-items: center;justify-content: center;display: flex;" >ORDENAR ARRAYS DE CADENA</h1>
             <hr>
-            <p class="lead">ingrese nombres en la caja de texto</p>
+            <p class="lead">Ingrese nombres en la caja de texto de abajo y ordene este listado el cual apareceran en el área de texto.</p>
             <div class="mb-3">
               <div class="container">
-                <form>
+                <form action="" name="miformulario">
                   <div class="row">
                     <div class="col">
                         <label for="" class="form-label">Mi Formulario</label>
                   <input type="text"
-                    class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                    class="form-control" name="nombre" id="nombre" aria-describedby="agregarnombre" placeholder="">
+                    
                     </div>
                     <div class="col">
-                        <input name="" id="" class="btn btn-primary" type="button" value="Button" style="border-right-width: 142px;border-right-style: solid;border-bottom-width: 19px;border-bottom-style: solid;padding-right: 14px;padding-top: 18px;padding-left: 151px;">
+                        <input  class="btn btn-primary" type="button" value="Agregar y ordenar nombre" name="agregarnombre"id="agregarnombre" onclick="ordenar2()" style="border-right-width: 142px;border-right-style: solid;border-bottom-width: 19px;border-bottom-style: solid;padding-right: 14px;padding-top: 18px;padding-left: 151px;">
                     </div>
                   </div>
                   <small id="helpId" class="form-text text-muted">AGREGA NOMBRE</small>
@@ -70,18 +75,159 @@
                       <textarea class="form-control" name="ordenados" id="ordenados" rows="30" placeholder="Aca se van a ordenar"></textarea>
                     </div>
                     <div class="col">
-                      <input name="" id="" class="btn btn-primary" type="button" value="limpiar" style="border-right-width: 142px;border-right-style: solid;border-bottom-width: 19px;border-bottom-style: solid;"oneclick="limpiar()" >
+                      <input name="limpiarTxtArea" id="limpiarTxtArea" onclick="limpiar()" class="btn btn-primary" type="button" value="limpiar" style="border-right-width: 142px;border-right-style: solid;border-bottom-width: 19px;border-bottom-style: solid;" >
                     </div>
                   </div>
                 </div>
                 </form>
+                <div id="mi-div" style="background-color: yellow; font-size: 20px;">Este es el contenido original</div>
+                <br><br><br><br><br>
+            <div id="mi-div2" class="a"></div>
+            <br><br>
+            <div id="mi-div3" class="b"></div>
+            <br><br>
+            
+            <p id="texto"></p>
+            
+            <input type="text" id="inputTexto">
+            <button id="botonAgregar">Agregar</button>
+            
               </div>
         </div>
     </div>/
-   
+<!--   
+    <li class="list" id="lista-dinamica">
+      <b>nombre: <span class="text-danger">descripcion...</span></b>
+    </li> 
+-->
+<ul id="lista-dinamica"></ul>
+<br>
+<!-- <template id="mi-template">
+  <div class="mi-clase">
+    <h1>Titulo de la plantilla</h1>
+    <p>Contenido de la plantilla</p>
+  </div>
+</template> -->
+
+
+<!-- Definimos la plantilla dentro de la etiqueta template -->
+<template id="mi-template">
+  <div class="mi-clase">
+    <h1>Titulo de la plantilla</h1>
+    <p>Contenido de la plantilla</p>
+  </div>
+</template>
+
+<!-- Creamos un contenedor donde se añadirá el contenido dinámico -->
+<div id="mi-contenedor"></div>
+
+<button id="miBoton">Haz clic aquí</button>
+<script>
+  const miBoton = document.getElementById('miBoton');
+  miBoton.addEventListener('click', function() {
+    const miParrafo = document.createElement('p');
+    miParrafo.textContent = '¡Se ha hecho clic en el botón!';
+    document.body.appendChild(miParrafo);
+  });
+</script>
+
+<input id="miInput" type="text">
+<script>
+  const miInput = document.getElementById('miInput');
+  miInput.addEventListener('keyup', function(event) {
+    const miParrafo = document.createElement('p');
+    miParrafo.textContent = `Se ha pulsado la tecla ${event.key}`;
+    document.body.appendChild(miParrafo);
+  });
+</script>
+
+<form id="miFormulario">
+  <label for="miInput">Introduce tu nombre:</label>
+  <input id="miInput" type="text">
+  <button type="submit">Enviar</button>
+</form>
+<script>
+  const miFormulario = document.getElementById('miFormulario');
+  miFormulario.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const miInput = document.getElementById('miInput');
+    const miParrafo = document.createElement('p');
+    miParrafo.textContent = `¡Hola, ${miInput.value}!`;
+    document.body.appendChild(miParrafo);
+  });
+</script>
+
+<p id="miParrafo"></p>
+<script>
+  const miParrafo = document.getElementById('miParrafo');
+  let contador = 0;
+  setInterval(function() {
+    contador++;
+    miParrafo.textContent = `Han pasado ${contador} segundos`;
+  }, 1000);
+</script>
+
+<div id="miDiv" draggable="true">Arrástrame</div>
+<script>
+  const miDiv = document.getElementById('miDiv');
+  miDiv.addEventListener('dragstart', function(event) {
+    event.dataTransfer.setData('text/plain', 'Este elemento se está arrastrando');
+  });
+</script>
+
+<button id="miBoton2">Habla</button>
+<script>
+  const miBoton2 = document.getElementById('miBoton2');
+  const reconocimientoVoz = new webkitSpeechRecognition();
+  miBoton2.addEventListener('click', function() {
+    reconocimientoVoz.start();
+  });
+  reconocimientoVoz.addEventListener('result', function(event) {
+    const resultado = event.results[0][0].transcript;
+    console.log(`Has dicho: ${resultado}`);
+  });
+</script>
+
+<button id="miBoton3">Obtener ubicación</button>
+<script>
+  const miBoton3 = document.getElementById('miBoton3');
+  miBoton3.addEventListener('click', function() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        console.log(`Latitud: ${position.coords.latitude}, Longitud: ${position.coords.longitude}`);
+      });
+    } else {
+      console.log('La geolocalización no está disponible');
+    }
+  });
+</script>
+
+<div id="div3" style="height: 500px; overflow: auto;">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida ipsum non dolor posuere, vel malesuada magna commodo. Sed malesuada finibus magna, nec venenatis odio convallis eget. Donec nec dapibus sem. Fusce aliquam massa quis velit pellentesque efficitur. Nam pharetra dolor nisi, ut dapibus quam lacinia eu. Nulla facilisi. Nullam vel tortor quis tellus efficitur malesuada a ut odio.</p>
+  <!-- más párrafos -->
+</div>
+<script>
+  const div3 = document.getElementById('div3');
+  div3.addEventListener('scroll', function() {
+    console.log(`Posición de scroll: ${div3.scrollTop}`);
+  });
+</script>
+
+
+<div id="miDiv" style="width: 100px; height: 100px; background-color: blue; position: relative;">
+  <div id="miOtroDiv" style="width: 50px; height: 50px; background-color: red; position: absolute;"></div>
+</div>
+<script>
+  const miOtroDiv = document.getElementById('miOtroDiv');
+  miOtroDiv.addEventListener('animationend', function() {
+    console.log('La animación ha terminado');
+  });
+</script>
+
+
+
 </div>
   </main>
-
 
 
 

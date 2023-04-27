@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<style>
+    *{
+        margin: 1%;
+        padding: 1%;
+        box-sizing: border-box;
+    }
+</style>
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+    <div class="container">
+        <h1>nomina de los empleados</h1>
+        <div class="row">
+            <div class="mb-3">
+                <input type="text"
+                  class="form-control" name="" id="cedula" aria-describedby="helpId" placeholder="ingrese cedula del empleado">
+              </div>
+              <div class="mb-3">
+                <input type="text"
+                  class="form-control" name="" id="nombre" aria-describedby="helpId" placeholder="ingrese nombre del empleado">
+              </div>
+               <div class="mb-3">
+                <select class="form-select form-select-lg" name="" id="categoria">
+                    <option selected>seleccione categoria</option>
+                    <option value="auxiliar A">auxiliar A</option>
+                    <option value="auxiliar B">auxiliar B</option>
+                    <option value="tecnico A">tecnico A</option>
+                    <option value="tecnico B">tecnico B</option>
+                    <option value="profesional A">profesional A</option>
+                    <option value="profesional B">profesional B</option>
+                    <option value="director A">director A</option>
+                    <option value="director B">director B</option>
+                    <option value="gerente deportivo">gerente deportivo </option>
+                    <option value="gerente general">gerente general </option>
+                </select>
+               </div>
+               <br>
+               <button type="button" class="btn btn-primary" id="calcular">calcular</button>
+               <br>
+               <div>
+                   <table class="table table-primary">
+                       <thead>
+                           <tr>
+                               <th scope="col">CEDULA</th>
+                               <th scope="col">NOMBRE</th>
+                               <th scope="col">CATEGORIA</th>
+                               <th scope="col">SALARIO BRUTO</th>
+                               <th scope="col">AUXILIO TX</th>
+                               <th scope="col">BONIFICACIONES</th>
+                               <th scope="col">EPS</th>
+                               <th scope="col">PENSION</th>
+                               <th scope="col" style="background-color: darkslateblue;">SALARIO NETO</th>
+           
+                           </tr>
+                       </thead>
+                       <tbody id="respuesta">
+           
+                       </tbody>
+                   </table>
+                  </div>
+        <br><br>
+        <h1>estadisticas</h1>
+
+        <div class="table">
+            <table class="table table-striped
+            table-hover	
+            table-borderless
+            table-primary
+            align-middle">
+                <thead class="table-light">
+                    <caption>Table Name</caption>
+                    <tr>
+                        <th>cant empleados</th>
+                        <th>empleado menos gana</th>
+                        <th>promedio salarios</th>
+                        <th>empleado mas gana</th>
+                        <th>valor total nomina</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="resumen">
+                       
+                    </tbody>
+
+            </table>
+        </div>
+        
+    </div>
+  </main>
+  <footer>
+
+
+    <script src="/js/pruebaTabla.js"></script>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

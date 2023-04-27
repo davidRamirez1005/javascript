@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+    <div class="container">
+        <div class="row">
+            <h1>servicio de agua:</h1>
+        </div>
+        <br><br>
+<form action="">
+    <div class="row">
+        <div class="col">
+            <label for="" class="form-label">ingrese nombre: </label>
+            <input type="text"
+            class="form-control" name="nombre" id="nombre" aria-describedby="agregarnombre" placeholder="">
+            <label for="" class="form-label">ingrese estado: </label>
+            <select class="form-select form-select-lg" name="estado" id="estado">
+                <option selected>seleccione</option>
+                <option value="1">activo</option>
+                <option value="2">suspendido</option>
+            </select>
+            <div class="">
+                <label for="" class="form-label">estrato: </label>
+                <select class="form-select form-select-lg" name="estrato" id="estrato">
+                    <option selected>seleccione</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+        <div class="col" style="padding-top: 6%;">
+            <input  class="btn btn-primary" type="button" value="Agregar " name="agregarnombre"id="agregarnombre" style="border-right-width: 142px;border-right-style: solid;border-bottom-width: 19px;border-bottom-style: solid;padding-right: 14px;padding-top: 18px;padding-left: 151px;">
+        </div>
+    </div>
+</div>
+</form>
+      <div style="padding: 15%;">
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">ESTRATO</th>
+                        <th scope="col">TARIFA BASICA</th>
+                    </tr>
+                </thead>
+                <tbody id="respuesta">
+                    
+                </tbody>
+            </table>
+          </div>
+      </div>
+          
+    </div>
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+
+
+<script src="/js/tarifador.js"></script>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

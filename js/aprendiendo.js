@@ -454,7 +454,7 @@ for (let i = 0; i < myArray2.length; i++) {
   // Imprime los números del 1 al 9
   
   // Recorrer una matriz con el método forEach()
-  const myArray3 = [10, 20, 30,[10, 20, 30]];
+  const myArray3 = [10, 20, 30,[15, 25, 38]];
   
   myArray3.forEach(function(elemento) {
     console.log(elemento);
@@ -540,3 +540,30 @@ let matrizE = [
   // resultado final
   console.log(resultados); // [12, 15, 18]
   
+
+  //fibonacci modificado
+  
+  function fibonacciModified(t1, t2, n) {
+    let tn,
+      t1Acumulado = t1, 
+      t2Acumulado = t2;
+    for (let i = 2; i < n; i++) {
+      tn =  t1Acumulado + t2Acumulado ** 2;
+      t1Acumulado = t2Acumulado;
+      t2Acumulado = tn;
+    }
+    return tn;
+  }
+  console.log(fibonacciModified(0, 1, 6)); 
+  
+
+  //operador terniario
+
+//   condición ? expresiónSiTrue : expresiónSiFalse;
+let edad1 = 25;
+let mensaje = edad1 >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
+console.log(mensaje); // Salida: "Eres mayor de edad"
+
+edad2 = 15;
+mensaje = edad2 >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
+console.log(mensaje); // Salida: "Eres menor de edad"

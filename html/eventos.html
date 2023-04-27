@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<style>
+    *{
+        margin: 3%;
+    }
+</style>
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+
+ <div class="container">
+    <button id="btn-menu">Mostrar menú</button>
+    <ul id="menu" class="oculto">
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Acerca de</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+ </div>
+    
+    <script>
+      const btnMenu = document.querySelector('#btn-menu');
+      const menu = document.querySelector('#menu');
+      
+      btnMenu.addEventListener('click', function() {
+        menu.classList.toggle('oculto');
+      });
+    </script>
+    
+    <style>
+      .oculto {
+        display: none;
+      }
+    </style>
+
+    <!-- ............ -->
+    <button id="boton-toggle">Mostrar/Ocultar</button>
+<div id="elemento-a-ocultar" class="oculto">
+  <p>Este es el contenido del elemento a ocultar.</p>
+</div>
+
+<script>
+  const botonToggle = document.querySelector('#boton-toggle');
+  const elementoAOcultar = document.querySelector('#elemento-a-ocultar');
+  
+  botonToggle.addEventListener('click', function() {
+    elementoAOcultar.classList.toggle('oculto');
+  });
+</script>
+
+<!-- ........................................... -->
+<label for="pais">País:</label>
+<select id="pais">
+  <option value="argentina">Argentina</option>
+  <option value="brasil">Brasil</option>
+  <option value="chile">Chile</option>
+</select>
+
+<label for="provincia">Provincia:</label>
+<select id="provincia">
+  <option value="">Seleccione un país primero</option>
+</select>
+
+<script>
+  const paisSelect = document.querySelector('#pais');
+  const provinciaSelect = document.querySelector('#provincia');
+  
+  paisSelect.addEventListener('change', function() {
+    const paisSeleccionado = paisSelect.value;
+    
+    switch (paisSeleccionado) {
+      case 'argentina':
+        provinciaSelect.innerHTML = `
+          <option value="buenos-aires">Buenos Aires</option>
+          <option value="cordoba">Córdoba</option>
+          <option value="santa-fe">Santa Fe</option>
+        `;
+        break;
+      case 'brasil':
+        provinciaSelect.innerHTML = `
+          <option value="rio-de-janeiro">Río de Janeiro</option>
+          <option value="sao-paulo">São Paulo</option>
+          <option value="bahia">Bahía</option>
+        `;
+        break;
+      case 'chile':
+        provinciaSelect.innerHTML = `
+          <option value="santiago">Santiago</option>
+          <option value="valparaiso">Valparaíso</option>
+          <option value="concepcion">Concepción</option>
+        `;
+        break;
+      default:
+        provinciaSelect.innerHTML = `
+          <option value="">Seleccione un país primero</option>
+        `;
+        break;
+    }
+  });
+</script>
+<br>
+<!-- ,................................. -->
+<label for="lista-colores">Elige un color:</label>
+<select id="lista-colores">
+  <option value="rojo">Rojo</option>
+  <option value="verde">Verde</option>
+  <option value="azul">Azul</option>
+</select>
+<div id="contenedor-color"></div>
+
+<script>
+  const listaColores = document.querySelector('#lista-colores');
+  const contenedorColor = document.querySelector('#contenedor-color');
+  
+  listaColores.addEventListener('change', function() {
+    const valorSeleccionado = listaColores.value;
+    
+    if (valorSeleccionado === 'rojo') {
+      contenedorColor.style.backgroundColor = 'red';
+    } else if (valorSeleccionado === 'verde') {
+      contenedorColor.style.backgroundColor = 'green';
+    } else if (valorSeleccionado === 'azul') {
+      contenedorColor.style.backgroundColor = 'blue';
+    }
+  });
+</script>
+
+<style>
+    
+  #contenedor-color {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    border: 1px solid black;
+  }
+</style>
+
+<!-- ......................................................... -->
+
+<label for="buscar">Buscar:</label>
+<input type="text" id="buscar">
+<ul id="lista-frutas">
+  <li>Manzana</li>
+  <li>Naranja</li>
+  <li>Plátano</li>
+  <li>Uva</li>
+  <li>Fresa</li>
+</ul>
+
+<script>
+  const inputBuscar = document.querySelector('#buscar');
+  const listaFrutas = document.querySelector('#lista-frutas');
+  const frutas = listaFrutas.querySelectorAll('li');
+  
+  inputBuscar.addEventListener('keyup', function() {
+    const textoBuscar = inputBuscar.value.toLowerCase();
+    
+    frutas.forEach(function(fruta) {
+      const textoFruta = fruta.textContent.toLowerCase();
+      
+      if (textoFruta.indexOf(textoBuscar) === -1) {
+        fruta.classList.add('oculto');
+      } else {
+        fruta.classList.remove('oculto');
+      }
+    });
+  });
+</script>
+
+<style>
+  .oculto {
+    display: none;
+  }
+</style>
+<!-- .............................----------------------------------------------------- -->
+
+<div class="card">
+    <img src="https://picsum.photos/200">
+    <div class="card-details">
+      <h2>Título de la tarjeta</h2>
+      <p>Descripción de la tarjeta.</p>
+      <button>Comprar</button>
+    </div>
+  </div>
+  
+<style>
+    .card {
+  display: inline-block;
+  margin: 10px;
+  position: relative;
+  border: var(--bs-card-border-width) ;
+}
+
+.card img {
+  display: block;
+  width:max-content;
+  height: auto;
+}
+
+.card .card-details {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  background-color: rgb(133, 44, 44);
+  padding: 10px;
+  transition: bottom 0.2s ease-out;
+}
+
+.card:hover .card-details {
+  bottom: 0;
+}
+
+</style>  
+<br><br>
+<!-- -------------------------------------------- -->
+<div class="contenedor-tarjeta">
+    <img src="https://picsum.photos/200">
+    <div class="informacion-tarjeta oculto">
+      <h2>Título de la tarjeta</h2>
+      <p>Descripción de la tarjeta.</p>
+      <button>Comprar</button>
+    </div>
+  </div>
+  
+  <script>
+    const contenedorTarjeta = document.querySelector('.contenedor-tarjeta');
+    const informacionTarjeta = contenedorTarjeta.querySelector('.informacion-tarjeta');
+    
+    contenedorTarjeta.addEventListener('mouseenter', function() {
+      informacionTarjeta.classList.remove('oculto');
+    });
+    
+    contenedorTarjeta.addEventListener('mouseleave', function() {
+      informacionTarjeta.classList.add('oculto');
+    });
+  </script>
+  
+  <style>
+    .oculto {
+      display: none;
+    }
+  </style>
+
+  <!-- ---------------------------------------- -->
+  <h1>Lista de tareas</h1>
+  
+  <form>
+    <input type="text" placeholder="Nueva tarea" id="nueva-tarea">
+    <button type="submit">Añadir tarea</button>
+  </form>
+  
+  <ul id="lista-tareas">
+    <li>Tarea 1</li>
+    <li>Tarea 2</li>
+    <li>Tarea 3</li>
+  </ul>
+  <style>
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    li {
+      margin-bottom: 10px;
+    }
+    
+    .completado {
+      text-decoration: line-through;
+    }
+  </style>
+  <script>
+    const form = document.querySelector('form');
+    const input = document.querySelector('#nueva-tarea');
+    const listaTareas = document.querySelector('#lista-tareas');
+    
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const tarea = input.value.trim();
+      if (tarea.length > 0) {
+        const li = document.createElement('li');
+        li.textContent = tarea;
+        li.addEventListener('click', function() {
+          li.classList.toggle('completado');
+        });
+        listaTareas.appendChild(li);
+        input.value = '';
+      }
+    });
+  </script>
+  <!-- ----------------------------------------------- -->
+
+<button id="miBoton">Haz clic aquí</button>
+
+<script>
+  const miBoton = document.querySelector('#miBoton');
+miBoton.onclick = function() {
+  console.log('Se hizo clic en el botón');
+}
+
+</script>
+
+<!-- ---------------------------------------------------------------------- -->
+<button id="boton">click</button>
+<script>
+  function saludar(nombre="desconocido") {
+    alert("hola "+"  jose david")
+  }
+  function holaMundo() {
+    alert("hola mundo ")
+  }
+
+  let $eventoMultiple = document.getElementById('boton');
+  $eventoMultiple.addEventListener("click",holaMundo)
+  $eventoMultiple.addEventListener("click",(e)=>{
+    console.log("hola mundo manejador de eventos multiple")
+    console.log(e);
+    console.log(e.type);
+    console.log(e.target);
+    console.log(event);
+
+  })
+  $eventoMultiple.addEventListener("click",saludar)
+
+</script>
+
+<!-- ----------------------------------------------------- -->
+
+
+
+<h1>Ejemplos de eventos</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero adipisci at dignissimos laborum perferendis
+accusamus ipsam quos id voluptates mollitia, sapiente molestiae amet consectetur. Maiores natus ratione ducimus
+animi assumenda.</p>
+<script>
+function mostrarMensaje(){
+console.log("Se ha dado un click en el titulo")
+}
+
+const titulo=document.querySelector("h1");
+const parrafo=document.querySelector("p")
+
+//titulo.onclick=mostrarMensaje;
+
+titulo.addEventListener("click", mostrarMensaje);
+let cont=0;
+parrafo.addEventListener("mouseover", ()=>{
+parrafo.textContent="haz pasado"+(++cont)+"veces"
+})
+
+parrafo.addEventListener("mouseout", ()=>{
+parrafo.textContent="Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero adipisci at dignissimos laborum perferendis"
+})
+</script>
+
+<!-- --------------------------------------------------------- -->
+
+<h1>Validación de datos en JavaScript</h1>
+  
+<form>
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" required maxlength="50" minlength="3">
+  
+  <label for="edad">Edad:</label>
+  <input type="number" id="edad" required min="18" max="99">
+  
+  <button type="submit">Enviar</button>
+</form>
+
+<script>
+  const form2 = document.querySelector('form2');
+  const nombre = document.querySelector('#nombre');
+  const edad = document.querySelector('#edad');
+  
+  form2.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Validación del nombre
+    if (!/^[a-zA-Z\s]{3,50}$/.test(nombre.value)) {
+      alert('El nombre no es válido. Debe tener entre 3 y 50 letras y no puede contener números ni caracteres especiales.');
+      nombre.focus();
+      return;
+    }
+    
+    // Validación de la edad
+    if (isNaN(edad.value) || edad.value < 18 || edad.value > 99) {
+      alert('La edad no es válida. Debe ser un número entre 18 y 99 años.');
+      edad.focus();
+      return;
+    }
+    
+    // Si todo está bien, se puede enviar el formulario
+    alert('¡Formulario enviado!');
+    form2.submit();
+  });
+</script>
+<!-- ---------------------------------------------------------- -->
+<h3>flujo de eventos</h3>
+<section class="eventos-flujo">
+  <div class="uno">
+    1
+    <div class="dos">
+      2
+      <div class="tres">
+        3
+        <a href="http://jonmircha.com/" target="_blank" rel="noopener">jonmircha</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .eventos-flujo div{
+    padding: 4rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .uno{
+    background-color: yellow;
+  } 
+  .dos{
+    background-color: gold;
+  }
+  .tres{
+    background-color: lightyellow;
+  }
+</style>
+  <script>
+    const $divEventos = document.querySelectorAll(".eventos-flujo div")
+    $linkEventos = document.querySelector(".eventos-flujo a")
+
+    function flujoEventos(e) {
+      console.log(
+        `hola te saluda ${this.className}, el click lo origino ${e.target.className}`
+      );
+      e.stopPropagation()
+    }
+    console.log($divEventos);
+    $divEventos.forEach((div)=>{
+      //fase de burbuja 
+      // div.addEventListener("click",flujoEventos,false)
+      //fase de captura => elemento mas externo al elemento mas interno 
+      div.addEventListener("click",flujoEventos,true)
+    })
+
+    $linkEventos.addEventListener("click",(e)=>{
+      alert("hola soy jose david")
+      e.preventDefault()
+    })
+  </script>
+
+<!-- ---------------------------------------------------------------------------- -->
+
+<button id="abrir-ventana">abrir ventana</button>
+<button id="cerrar-ventana">cerrar ventana</button>
+<button id="imprimir-ventana">imprimir ventana</button>
+
+<script>
+  const $btnAbrir = document.getElementById("abrir-ventana")
+  const $btnCerrar = document.getElementById("cerrar-ventana")
+  const $btnImprimir = document.getElementById("imprimir-ventana")
+
+  let ventana
+
+  $btnAbrir.addEventListener("click",(e)=>{
+    ventana =  window.open("https://juan-mogotocoro.vercel.app/")
+  })
+  $btnCerrar.addEventListener("click",(e)=>{
+    // window.close()
+    ventana.close()
+  })
+  $btnImprimir.addEventListener("click",(e)=>{
+    window.print()
+  })
+</script>
+<!-- --------------------------------------------------------------------- -->
+
+<!-- objeto URL -->
+
+<script>
+  console.log("***********objeto URL************");
+  console.log(location);
+  console.log(location.origin);
+  console.log(location.protocol);
+  console.log(location.host);
+  console.log(location.hostname);
+  console.log(location.port);
+  console.log(location.href);
+  console.log(location.hash);
+  console.log(location.pathname);
+</script>
+  
+<!-- objeto History -->
+
+<script>
+  console.log("***********objeto History************");
+  console.log(history);
+  console.log(history.length);
+  console.log(history.back);
+</script>
+
+<!-- objeto Navegator -->
+
+<script>
+  console.log("***********objeto Navegator************");
+  console.log(navigator);
+  console.log(navigator.geolocation);
+  console.log(navigator.mediaDevices);
+  console.log(navigator.mimeTypes);
+  console.log(navigator.onLine);
+  console.log(navigator.serviceWorker);
+  console.log(navigator.storage);
+  console.log(navigator.userAgent);
+</script>
+<!-- ------------------------------------------------------------------------------ -->
+
+<!-- ------------------------------------------------------------------ -->
+
+<!-- Web APIs -->
+
+<button id="btnHablar">Hablar</button>
+<input type="text" id="inputTexto" placeholder="Ingresa el texto que quieres escuchar">
+<button id="btnHablar2">Hablar2</button>
+
+<script>
+  //  let textoAescuchar2 = "hola soy jose david de campus y quiero enseñarte programar"
+  //  const hablar = (textoAescuchar2) => speechSynthesis.speak(new SpeechSynthesisUtterance(textoAescuchar2))
+
+  //  hablar(textoAescuchar)
+
+// Verificar si el navegador soporta la API de SpeechSynthesis
+if ('speechSynthesis' in window) {
+  let textoAescuchar = "hola soy jose david de campus y quiero enseñarte programar";
+  const utterance = new SpeechSynthesisUtterance(textoAescuchar);
+  utterance.lang = "es-MX";
+
+  // Agregar evento al botón
+  document.getElementById("btnHablar").addEventListener("click", function() {
+    speechSynthesis.speak(utterance);
+  });
+} else {
+  // Código alternativo para navegadores que no soportan la API
+  console.log("El navegador no soporta la API de SpeechSynthesis");
+}
+
+// ------------------------------------------------- usan el input
+// Verificar si el navegador soporta la API de SpeechSynthesis
+if ('speechSynthesis' in window) {
+  const inputTexto = document.getElementById("inputTexto");
+  const btnHablar = document.getElementById("btnHablar2");
+
+  // Agregar evento al botón
+  btnHablar.addEventListener("click", function() {
+    let textoAescuchar = inputTexto.value;
+    const utterance = new SpeechSynthesisUtterance(textoAescuchar);
+    utterance.lang = "es-MX";
+    speechSynthesis.speak(utterance);
+  });
+} else {
+  // Código alternativo para navegadores que no soportan la API
+  console.log("El navegador no soporta la API de SpeechSynthesis");
+}
+
+
+
+
+</script>
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <script src="/js/eventos.js"></script>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

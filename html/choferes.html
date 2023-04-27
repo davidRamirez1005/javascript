@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<style>
+*{
+    margin: 2%;
+
+}
+.a{
+    display: flex;
+    justify-content: center;
+
+}
+.btn:first-child:hover, :not(.btn-check) + .btn:hover {
+  color: #6f111e;
+  background-color: hsl(157, 100%, 50%);
+  border-color: #ffffff;
+    border-top-color: rgb(255, 16, 223);
+    border-right-color: #c2ff1aea;
+    border-bottom-color: rgb(255, 88, 10);
+    border-left-color: rgb(228, 132, 132);
+}
+</style>
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+<div class="container-fluid ">
+    <div class="row a">
+        <div class="col-2">
+            <h1>The Big Old</h1>
+            <div>
+                <h2>bienvenidos</h2>
+            </div>
+        </div>
+        
+        <div class="col-9 ">
+            <form action="" name="miformulario">
+            <div class="row">
+                <h2 style="align-items: center;justify-content: center;display: flex;" >total de kilómetros que recorrió cada chofer durante la semana.</h2>
+                
+                    <div class="col-2">
+                        <br>
+                        <p class="lead"> N KILOMETROS </p>
+                    </div>
+                    <div class="col-9">
+                        
+                        <div class="form-floating mb-3">
+                            <input
+                              type="text"
+                              class="form-control" name="formId1" id="formId1" placeholder="">
+                            <label for="formId1">kilometros</label>
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <br>
+                        <p class="lead">INGRESE NOMBRE </p>
+                    </div>
+                    <div class="col-9">
+                        <div class="form-floating mb-3">
+                            <input type="text"
+                          class="form-control" name="nombre" id="nombre" aria-describedby="agregarnombre" placeholder="">
+                          </div>
+                          </div>
+                    </div>
+                </div>
+                <div style="display: flex;align-items: center;justify-content: center; ">
+                    <input  class="btn btn-primary" type="button" value="AGREGAR" name="agregarnombre"id="agregarnombre" onclick="ordenar2()" style="border-right-width: 142px;border-right-style: solid;border-bottom-width: 19px;border-bottom-style: solid;padding-right: 14px;padding-top: 18px;padding-left: 151px;">
+                </div>
+            </div>
+            <div class="container-fluid">
+                <hr>
+                <div class="row">
+                    <div class="col-10">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>NOMBRE</th>
+                                    <th>LUN</th>
+                                    <th>MAR</th>
+                                    <th>MIE</th>
+                                    <th>JUE</th>
+                                    <th>VIE</th>
+                                    <th>SAB</th>
+                                    <th>TOTAL</th>
+    
+                                </tr>
+                            </thead>
+            
+                            <tbody id="respuesta">
+            
+                            </tbody>
+                        </table>
+            
+                    </div>
+                    <div class="col-1">
+                        <br><br>
+                        <input type="button" value="Calcular interés" 
+                        onclick="montoDeposito();"
+                        class="btn btn-primary">
+            
+                    </div>
+                    </div>
+                </div>
+                </form>
+        </div>
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/dom.js"></script>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
