@@ -1,0 +1,23 @@
+{
+  "agendar": [
+    {
+      "id": 1,
+      "materia": "calculo",
+      "semestre": 1,
+      "corte": 1
+    },
+    {
+      "materia": "comunicaciones",
+      "semestre": "2",
+      "corte": "1",
+      "id": 2
+    },
+    {
+      "materia": "ingles",
+      "semestre": "5",
+      "corte": "3",
+      "id": 3
+    }
+  ],
+  "contenido": []
+}

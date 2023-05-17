@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>UTS</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="./js/main.js" defer type="module"></script>
+  <script src="./js/agendar.js" defer type="module"></script>
+  <script src="./components/modal.js" defer></script>
+  <script src="/js/simulador.js" defer></script>
+  <script src="/js/apiYoutube.js" defer></script>
+
+
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+    <div id="menu">
+      <script>
+        fetch('./html/menuHamburguer.html')
+          .then(response => response.text())
+          .then(data => {
+            const header = document.querySelector('#menu');
+            header.innerHTML = data;
+          });
+      </script>
+    </div>
+  </header>
+  <div>
+    <img src="https://em-content.zobj.net/thumbs/160/apple/354/flag-china_1f1e8-1f1f3.png" width="10%" alt="">
+    <h1>Proyecto universidad </h1>
+  </div>
+  <main>
+    <section id="seccion1" class="section">
+      <h2>GUARDA TUS PENDIENTES</h2>
+      <section class="crud">
+        <article>
+          <h2 class="crud-title">Agregar Materia</h2>
+          <form class="crud-form">
+            <input type="text" name="materia" placeholder="materia" required />
+            <br />
+            <input type="text" name="semestre" placeholder="semestre" required />
+            <input type="text" name="corte" placeholder="corte" required />
+            <br />
+            <input type="submit" value="Enviar" />
+            <input type="hidden" name="id" />
+          </form>
+        </article>
+        <article>
+          <div class="table-responsive">
+            <table class="table table-striped
+              table-hover	
+              table-borderless
+              table-danger
+              align-middle
+              crud-table">
+              <thead class="table-dark">
+                <tr>
+                  <th>materia</th>
+                  <th>semestre</th>
+                  <th>corte</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+      <template id="crud-template">
+        <tr>
+          <td class="mate"></td>
+          <td class="sem"></td>
+          <td class="cort"></td>
+          <td>
+            <div class="boton">
+              <button class="edit">Editar</button>
+              <button class="delete">Eliminar</button>
+              <button class="details">Detalles</button>
+              <modal-window class="agendar"></modal-window>
+            </div>
+
+          </td>
+        </tr>
+      </template>
+    </section>
+    <section id="seccion2" class="section">
+      <h1>Simulador de calificaciones</h1>
+      <br>
+      <div id="simulador">
+        <script>
+          fetch('/html/simulador.html')
+            .then(response => response.text())
+            .then(data => {
+              const header = document.querySelector('#simulador');
+              header.innerHTML = data;
+            });
+        </script>
+      </div>
+    </section>
+    <section id="seccion3" class="section">
+      <h1>Buscador de videos</h1>
+
+      <input type="text" id="searchInput" placeholder="Ingrese palabras clave de búsqueda">
+      <div class="boton">
+        <button id="buscar">Buscar</button>
+      </div>
+
+      <div id="resultsContainer" class="container"></div>
+
+
+    </section>
+    <section id="seccion4" class="section">
+      <h2>seccion4</h2>
+    </section>
+    <section id="seccion5" class="section">
+      <h2>seccion5</h2>
+    </section>
+  </main>
+  <button class="scroll-top-btn hidden">&#11014</button>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
